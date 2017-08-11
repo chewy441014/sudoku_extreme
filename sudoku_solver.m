@@ -11,6 +11,7 @@ function solved = sudoku_solver(puzzle,variations)
 %additional struct. The validity of the puzzle will be checked at first,
 %and after each number is inserted (including guesses).
 %%%
+    solved = puzzle;
     if isvalid_sudoku(puzzle)
         disp('This is a valid puzzle.');
     else
@@ -45,5 +46,7 @@ function solved = sudoku_solver(puzzle,variations)
     %processing will not be used for now). One will not succeed. ATM This
     %is hypothetical, I'm not that good at matlab yet. The goal is to only
     %recurse once or twice for even very hard puzzles. 
+    
+    solved = 'not yet';
 
 end
