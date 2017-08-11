@@ -1,17 +1,20 @@
-function candidates = potential_maker(puzzle1)
+function candidates = potential_maker(puzzle,variations)
 %%%
 %Takes a 9x9 puzzle and returns a binary 9x9x9 with the placement of
-%candidates
+%candidates. (I do assume that rows and columns will always be a part of
+%the game though).
 %%%
-
+    
     candidates = ones(9,9,9);
     for i = 1:9
-        [r,c] = check_rows_columns(puzzle1,i);
-        s = check_squares(puzzle1,i);
-        %These functions return a vector of integers indicating which rows
-        %columns and squares contain number i. 
+        [r,c] = check_rows_columns(puzzle,i);
         candidates(r,:,i) = 0;
         candidates(:,c,i) = 0;
-        candidates = assign_square_candidates(candidates,s,i);
+        if variations.Normal == 1
+            s = check_squares(puzzle,i);        
+            candidates = assign_square_candidates(candidates,s,i);
+        else
+            %Add the functions for each case of sudoku variant. 
+        end
     end
 end

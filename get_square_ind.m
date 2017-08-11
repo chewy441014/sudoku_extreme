@@ -1,4 +1,7 @@
 function square_ind = get_square_ind()
+%%%
+%Returns the single index for each of nine squares for a puzzle
+%%%
     a = 1:3;
     b = 4:6;
     c = 7:9;
